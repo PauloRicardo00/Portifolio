@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Paulo Ricardo — Desenvolvedor Full Stack</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="veil" id="veil"></div>
+        <div class="wrap"><a class="logo" href="#inicio">Paulo<b>.</b>dev</a>
+            <div style="display:flex;gap:10px;align-items:center">
+                <div class="links" id="links"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a
+                        href="#portfolio">Portfólio</a><a href="#contato">Contato</a></div><button class="theme"
+                    id="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button><button
+                    class="theme burger" id="burger" type="button" aria-label="Abrir menu"
+                    aria-expanded="false">☰</button>
+            </div>
+        </div>
+    </nav>
+    <header class="hero" id="inicio">
+        <div class="wrap">
+            <div class="soc"><a href="mailto:desvpaulorslima@gmail.com" aria-label="E-mail">@</a><a
+                    href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310" aria-label="LinkedIn">in</a><a
+                    href="https://github.com/PauloRicardo00" aria-label="GitHub">GH</a></div>
+            <h1>Paulo Ricardo Souza Lima<br>Desenvolvedor <em>Full Stack</em></h1>
+            <div class="ln"></div>
+            <p>Back-end, banco de dados e interfaces web. Em busca de estágio ou vaga de desenvolvedor.</p>
+            <div class="btns"><a class="btn p" href="#portfolio">Ver projetos</a><a class="btn"
+                    href="#contato">Contate-me</a></div>
+        </div>
+    </header>
+    <section id="sobre">
+        <div class="wrap">
+            <h2>Sobre mim</h2>
+            <div class="two" style="margin-top:28px">
+                <div>
+                    <p>Tenho 19 anos, sou técnico em Análise e Desenvolvimento de Sistemas pelo SENAI Ribeirão Preto e
+                        curso o superior em ADS na mesma instituição. Prefiro back-end e trabalho principalmente com C#,
+                        SQL Server, HTML, CSS, JavaScript e Bootstrap.</p>
+                    <p class="small">Fora do código: musculação, corrida, futebol, vôlei, games e confeitaria.</p>
+                </div>
+                <div class="ph"><img alt="Retrato de Paulo Ricardo" src="img/retrato-paulo.jpg"></div>
+            </div>
+            <div class="three">
+                <div class="box">
+                    <h3>Paixão</h3>
+                    <p>Back-end e sistemas que resolvem problemas reais.</p>
+                </div>
+                <div class="box">
+                    <h3>Metodologia</h3>
+                    <p>Trabalho em equipe e entregas progressivas.</p>
+                </div>
+                <div class="box">
+                    <h3>Foco atual</h3>
+                    <p>Graduação em ADS e primeira oportunidade como desenvolvedor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="wrap">
+            <h2>Portfólio</h2>
+            <div class="tabs" role="tablist" aria-label="Portfólio"><button class="tab" role="tab" id="t0"
+                    aria-selected="true" aria-controls="p0">Projetos</button><button class="tab" role="tab" id="t1"
+                    aria-selected="false" aria-controls="p1" tabindex="-1">Certificados</button><button class="tab"
+                    role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Tecnologias</button></div>
+            <div role="tabpanel" id="p0" aria-labelledby="t0">
+                <div class="pj">
+                    <article class="card"><span class="frame"><img alt="Tela de boas-vindas do sistema Food-Pay"
+                                src="img/foodpay-boas-vindas.jpg"></span><span class="meta"><strong>Food-Pay</strong>
+                            <p>Projeto desenvolvido em equipe para uma cantina do SENAI de Santa Catarina, com o
+                                objetivo de digitalizar processos que eram realizados manualmente. A plataforma conecta
+                                alunos, responsáveis e funcionários, reunindo pedidos, cadastro de produtos, recargas de
+                                saldo via Stripe e notificações. Atuei como líder da equipe e fui responsável por todo o
+                                back-end, pela integração com Stripe e pelo sistema de envio de e-mails. Também conectei
+                                a API ao front-end e fiz ajustes visuais na interface, desenvolvida inicialmente por
+                                outro integrante.</p><span class="tags"><span>React 18</span><span>Vite</span><span>.NET
+                                    8 / C#</span><span>SQL Server</span><span>JWT</span><span>Stripe</span></span><span
+                                class="links2"><a href="https://pauloricardo00.github.io/Food-Pay/">Ver no ar</a><a
+                                    href="https://github.com/PauloRicardo00/Food-Pay">GitHub</a></span>
+                        </span></article>
+                    <article class="card"><span class="frame"><img alt="Tela inicial do CineMatch Pro"
+                                src="img/cinematch-pro.jpg"></span><span class="meta"><strong>CineMatch Pro</strong>
+                            <p>Gerenciador de videoteca pessoal: permite cadastrar filmes, salvar trailers e acompanhar
+                                quanto tempo de cinema já foi consumido, organizado em áreas de cadastro, videoteca e
+                                sugestões. Projeto desenvolvido sozinho, do zero.</p><span
+                                class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span><span
+                                class="links2"><a href="https://pauloricardo00.github.io/unisenai-cinematch-pro/">Ver no
+                                    ar</a><a
+                                    href="https://github.com/PauloRicardo00/unisenai-cinematch-pro">GitHub</a></span>
+                        </span></article>
+                </div>
+            </div>
+            <div role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+                <div class="chips" id="chips" role="group" aria-label="Filtrar por área"></div>
+                <p class="count" id="count" aria-live="polite"></p>
+                <ul class="grid" id="grid"></ul>
+            </div>
+            <div role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+                <div class="three tgrid" style="margin-top:0">
+                    <div class="box tg">
+                        <div class="gh"><span class="ic">◧</span>
+                            <div>
+                                <h3>Front-end</h3><span class="small">4 tecnologias</span>
+                            </div>
+                        </div>
+                        <ul class="tiles">
+                            <li class="tile st"><span class="bd">&lt;/&gt;</span><span>HTML</span></li>
+                            <li class="tile st"><span class="bd">{ }</span><span>CSS</span></li>
+                            <li class="tile st"><span class="bd">JS</span><span>JavaScript</span></li>
+                            <li class="tile st"><span class="bd">B</span><span>Bootstrap</span></li>
+                        </ul>
+                    </div>
+                    <div class="box tg">
+                        <div class="gh"><span class="ic">⌘</span>
+                            <div>
+                                <h3>Linguagens e Desenvolvimento</h3><span class="small">3 tecnologias</span>
+                            </div>
+                        </div>
+                        <ul class="tiles">
+                            <li class="tile st"><span class="bd">C#</span><span>C#</span></li>
+                            <li class="tile"><span class="bd">Jv</span><span>Java</span></li>
+                            <li class="tile"><span class="bd">Py</span><span>Python</span></li>
+                        </ul>
+                    </div>
+                    <div class="box tg">
+                        <div class="gh"><span class="ic">▤</span>
+                            <div>
+                                <h3>Banco de Dados</h3><span class="small">2 tecnologias</span>
+                            </div>
+                        </div>
+                        <ul class="tiles">
+                            <li class="tile st"><span class="bd">SQL</span><span>SQL Server</span></li>
+                            <li class="tile"><span class="bd">My</span><span>MySQL</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contato">
+        <div class="wrap">
+            <h2>Contato</h2>
+            <div class="two" style="margin-top:28px;align-items:start">
+                <form onsubmit="return false"><input aria-label="Nome" placeholder="Nome"><input aria-label="E-mail"
+                        type="email" placeholder="E-mail"><textarea aria-label="Mensagem" rows="5"
+                        placeholder="Mensagem"></textarea><button class="btn p" type="button">Enviar</button><span
+                        class="small">O envio real será conectado na versão final.</span></form>
+                <div class="box">
+                    <p><a href="mailto:desvpaulorslima@gmail.com" style="color:var(--act)">desvpaulorslima@gmail.com</a>
+                    </p>
+                    <p><a href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310"
+                            style="color:var(--act)">LinkedIn</a></p>
+                    <p><a href="https://github.com/PauloRicardo00" style="color:var(--act)">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>© 2026 Paulo Ricardo Souza Lima</footer>
+    <dialog id="lb" aria-label="Certificado ampliado">
+        <div class="lb">
+            <div class="bar"><span id="pos"></span>
+                <div class="nav"><button class="ib" id="prev" type="button" aria-label="Anterior">←</button><button
+                        class="ib" id="next" type="button" aria-label="Próximo">→</button><button class="ib" id="close"
+                        type="button" aria-label="Fechar">✕</button></div>
+            </div>
+            <div class="img"><img id="lbimg" alt=""></div>
+            <div class="cap"><strong id="lbt"></strong><br><small id="lbm" style="color:var(--mu)"></small></div>
+        </div>
+    </dialog>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
