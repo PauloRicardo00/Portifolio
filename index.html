@@ -2,6 +2,7 @@
 <html lang="pt-BR" data-bs-theme="dark">
 
 <head>
+    <!-- Configuração da página, tema inicial e arquivos de estilo -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paulo Ricardo — Desenvolvedor Full Stack</title>
@@ -11,7 +12,10 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#menu" data-bs-smooth-scroll="true" data-bs-root-margin="-40% 0px -55% 0px">
+    <!-- Atalho de acessibilidade para o conteúdo principal -->
     <a class="skip" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <!-- Cabeçalho: marca, navegação e botão de tema -->
     <nav class="navbar navbar-expand-md sticky-top border-bottom" aria-label="Menu principal">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#inicio">Paulo<b class="text-primary">.</b>dev</a>
@@ -32,7 +36,9 @@
         </div>
     </nav>
 
+    <!-- Conteúdo principal da página -->
     <main id="conteudo" tabindex="-1">
+        <!-- Início: apresentação e links principais -->
         <section class="hero d-flex align-items-center text-center" id="inicio" aria-labelledby="titulo">
             <div class="container d-flex flex-column align-items-center gap-3">
                 <div class="d-flex gap-2">
@@ -54,6 +60,7 @@
             </div>
         </section>
 
+        <!-- Sobre mim: biografia, foto e áreas de interesse -->
         <section id="sobre" class="py-5">
             <div class="container">
                 <h2 class="titulo">Sobre mim</h2>
@@ -103,6 +110,7 @@
             </div>
         </section>
 
+        <!-- Portfólio: projetos, certificados e tecnologias -->
         <section id="portfolio" class="py-5">
             <div class="container">
                 <h2 class="titulo">Portfólio</h2>
@@ -118,6 +126,7 @@
                             aria-selected="false">Tecnologias</button></li>
                 </ul>
                 <div class="tab-content">
+                    <!-- Aba Projetos -->
                     <div class="tab-pane fade show active" id="p0" role="tabpanel" aria-labelledby="t0">
                         <div class="row row-cols-1 row-cols-lg-2 g-4">
                             <div class="col">
@@ -284,6 +293,7 @@
                         </div>
                     </div>
 
+                    <!-- Aba Certificados: filtros e grade preenchidos pelo JavaScript -->
                     <div class="tab-pane fade" id="p1" role="tabpanel" aria-labelledby="t1">
                         <div class="d-flex flex-wrap gap-2 mb-2" id="chips" role="group" aria-label="Filtrar por área">
                         </div>
@@ -291,6 +301,7 @@
                         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3" id="grid"></div>
                     </div>
 
+                    <!-- Aba Tecnologias -->
                     <div class="tab-pane fade" id="p2" role="tabpanel" aria-labelledby="t2" tabindex="0">
                         <div class="row row-cols-1 row-cols-md-3 g-3 align-items-start">
                             <div class="col">
@@ -362,6 +373,7 @@
             </div>
         </section>
 
+        <!-- Contato: formulário de mensagem e canais diretos -->
         <section id="contato" class="py-5">
             <div class="container">
                 <h2 class="titulo">Contato</h2>
@@ -413,10 +425,13 @@
 
     </main>
 
+    <!-- Rodapé -->
     <footer class="text-center text-secondary small py-4">© 2026 Paulo Ricardo Souza Lima</footer>
 
+    <!-- Região que anuncia mensagens para leitores de tela -->
     <div id="status" class="visually-hidden" role="status" aria-live="polite"></div>
 
+    <!-- Aviso de sucesso ou erro do formulário -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="toastMsg" class="toast align-items-center border-0">
             <div class="d-flex">
@@ -427,6 +442,7 @@
         </div>
     </div>
 
+    <!-- Janela de visualização ampliada dos certificados -->
     <div class="modal fade" id="lb" tabindex="-1" aria-labelledby="lbt" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -445,6 +461,7 @@
         </div>
     </div>
 
+    <!-- Bibliotecas e comportamento da página -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
