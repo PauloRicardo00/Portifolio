@@ -1,24 +1,4 @@
-
-var IMG={
- "ciberseguranca-na-nuvem": "img/certificados/ciberseguranca-na-nuvem.jpg",
- "competencia-transversal-logica-de-programaca": "img/certificados/competencia-transversal-logica-de-programaca.jpg",
- "competencia-transversal-seguranca-no-trabalh": "img/certificados/competencia-transversal-seguranca-no-trabalh.jpg",
- "criador-de-app-microsoft-power-plataform-microso": "img/certificados/criador-de-app-microsoft-power-plataform-microso.jpg",
- "data-analytics-e-tomada-de-decisao": "img/certificados/data-analytics-e-tomada-de-decisao.jpg",
- "desenvolvedor-de-aplicacoes-para-androi": "img/certificados/desenvolvedor-de-aplicacoes-para-androi.jpg",
- "desvendando-o-5": "img/certificados/desvendando-o-5.jpg",
- "economia-circula": "img/certificados/economia-circula.jpg",
- "etica-na-inteligencia-artificia": "img/certificados/etica-na-inteligencia-artificia.jpg",
- "fluencia-fundamentos-da-inteligencia-artificia": "img/certificados/fluencia-fundamentos-da-inteligencia-artificia.jpg",
- "fundamentos-de-ciencia-de-dados-google-clou": "img/certificados/fundamentos-de-ciencia-de-dados-google-clou.jpg",
- "fundamentos-do-python": "img/certificados/fundamentos-do-python.jpg",
- "implantacao-de-servicos-de-inteligencia-artifici": "img/certificados/implantacao-de-servicos-de-inteligencia-artifici.jpg",
- "implantacao-de-servicos-em-nuvem-aws-cloud-pract": "img/certificados/implantacao-de-servicos-em-nuvem-aws-cloud-pract.jpg",
- "implantacao-de-servicos-em-nuvem-microsoft-az-90": "img/certificados/implantacao-de-servicos-em-nuvem-microsoft-az-90.jpg",
- "microsoft-power-b": "img/certificados/microsoft-power-b.jpg",
- "privacidade-e-protecao-de-dados-lgpd": "img/certificados/privacidade-e-protecao-de-dados-lgpd.jpg",
- "solucoes-integradas-com-iot": "img/certificados/solucoes-integradas-com-iot.jpg"
-};
+function IMG(k){return "img/certificados/"+k+".jpg"}
 var CATS={todos:"Todos",cloud:"Cloud",dados:"Dados",ia:"Inteligência Artificial",prog:"Programação e Mobile",outros:"Outros"};
 var C=[
 ["Implantação de Serviços de IA em Nuvem — Microsoft AI-900",40,"2026-06-17","ia","implantacao-de-servicos-de-inteligencia-artifici"],
@@ -47,52 +27,86 @@ var grid=document.getElementById("grid"),chips=document.getElementById("chips"),
 var cur="todos",list=C.slice(),idx=0;
 function render(){
   list=C.filter(function(x){return cur==="todos"||x[3]===cur});
-  grid.innerHTML="";
-  list.forEach(function(x,i){
-    var li=document.createElement("li"),b=document.createElement("button");
-    b.type="button";b.className="card";b.dataset.i=i;
-    b.innerHTML='<span class="frame"><img loading="lazy" alt="Certificado: '+x[0]+'" src="'+IMG[x[4]]+'"></span><span class="meta"><span class="tag">'+CATS[x[3]]+'</span><strong>'+x[0]+'</strong><small>'+x[1]+'h · '+when(x[2])+'</small></span>';
-    li.appendChild(b);grid.appendChild(li);
-  });
+  grid.innerHTML=list.map(function(x,i){
+    return '<div class="col"><button type="button" class="card h-100 w-100 text-start p-0" data-i="'+i+'" data-bs-toggle="modal" data-bs-target="#lb" aria-haspopup="dialog">'+
+      '<span class="frame"><img loading="lazy" class="rounded-1 shadow" alt="" src="'+IMG(x[4])+'"></span>'+
+      '<span class="card-body d-block"><span class="d-block text-primary fw-bold small text-uppercase">'+CATS[x[3]]+'</span><span class="visually-hidden">: </span><span class="d-block h6 mt-1">'+x[0]+'</span><small class="text-secondary">'+x[1]+'h · '+when(x[2])+'</small></span>'+
+      '<span class="visually-hidden"> (abre o certificado ampliado)</span></button></div>';
+  }).join("");
   count.textContent=list.length+" certificado"+(list.length>1?"s":"")+(cur==="todos"?"":" em "+CATS[cur]);
 }
 Object.keys(CATS).forEach(function(k){
-  var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=CATS[k];b.setAttribute("aria-pressed",k===cur);
-  b.onclick=function(){cur=k;[].forEach.call(chips.children,function(c){c.setAttribute("aria-pressed",c===b)});render()};
+  var b=document.createElement("button");b.type="button";b.className="btn btn-sm btn-outline-primary rounded-pill"+(k===cur?" active":"");b.textContent=CATS[k];b.setAttribute("aria-pressed",k===cur?"true":"false");
+  b.onclick=function(){cur=k;[].forEach.call(chips.children,function(c){c.classList.toggle("active",c===b);c.setAttribute("aria-pressed",c===b?"true":"false")});render()};
   chips.appendChild(b);
 });
-var lb=document.getElementById("lb"),lbimg=document.getElementById("lbimg");
+var lbEl=document.getElementById("lb"),lbimg=document.getElementById("lbimg");
 function show(i){
   idx=(i+list.length)%list.length;var x=list[idx];
-  lbimg.src=IMG[x[4]];lbimg.alt="Certificado: "+x[0];
+  lbimg.src=IMG(x[4]);lbimg.alt="Certificado: "+x[0];
   document.getElementById("lbt").textContent=x[0];
   document.getElementById("lbm").textContent=info(x);
   document.getElementById("pos").textContent=(idx+1)+" de "+list.length;
 }
-grid.addEventListener("click",function(e){var b=e.target.closest(".card");if(!b)return;show(+b.dataset.i);lb.showModal()});
+grid.addEventListener("click",function(e){var b=e.target.closest("button[data-i]");if(b)show(+b.dataset.i)});
 document.getElementById("prev").onclick=function(){show(idx-1)};
 document.getElementById("next").onclick=function(){show(idx+1)};
-document.getElementById("close").onclick=function(){lb.close()};
-lb.addEventListener("click",function(e){if(e.target===lb)lb.close()});
-lb.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(idx-1);if(e.key==="ArrowRight")show(idx+1)});
-var root=document.documentElement;
-try{var s=localStorage.getItem("theme");if(s)root.dataset.theme=s}catch(e){}
-document.getElementById("theme").onclick=function(){
-  var dark=root.dataset.theme?root.dataset.theme==="dark":!matchMedia("(prefers-color-scheme: light)").matches;
-  root.dataset.theme=dark?"light":"dark";
-  try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}
-};
+lbEl.addEventListener("keydown",function(e){if(e.key==="ArrowLeft")show(idx-1);if(e.key==="ArrowRight")show(idx+1)});
 render();
 
-var tabs=[].slice.call(document.querySelectorAll(".tab"));
-function pick(i){tabs.forEach(function(t,j){t.setAttribute("aria-selected",i===j);t.tabIndex=i===j?0:-1;document.getElementById("p"+j).hidden=i!==j});tabs[i].focus()}
-tabs.forEach(function(t,i){t.onclick=function(){pick(i)};t.onkeydown=function(e){if(e.key==="ArrowRight")pick((i+1)%3);if(e.key==="ArrowLeft")pick((i+2)%3)}});
-var lk=document.getElementById("links"),bg=document.getElementById("burger");
-var vl=document.getElementById("veil");
-function menu(o){lk.classList.toggle("open",o);vl.classList.toggle("on",o);bg.setAttribute("aria-expanded",o);bg.textContent=o?"✕":"☰"}
-bg.onclick=function(){menu(!lk.classList.contains("open"))};
-vl.onclick=function(){menu(false)};
-lk.onclick=function(e){if(e.target.tagName==="A")menu(false)};
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&lk.classList.contains("open")){menu(false);bg.focus()}});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)[].forEach.call(lk.children,function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})})},{rootMargin:"-40% 0px -55% 0px"});
-["inicio","sobre","portfolio","contato"].forEach(function(id){io.observe(document.getElementById(id))});
+/* Tema claro/escuro */
+var root=document.documentElement,tb=document.getElementById("theme");
+function icon(){var d=root.getAttribute("data-bs-theme")==="dark";tb.firstElementChild.textContent=d?"☀":"☾";tb.setAttribute("aria-pressed",d?"true":"false");tb.title=d?"Mudar para tema claro":"Mudar para tema escuro"}
+tb.addEventListener("click",function(){
+  var t=root.getAttribute("data-bs-theme")==="dark"?"light":"dark";
+  root.setAttribute("data-bs-theme",t);
+  try{localStorage.setItem("theme",t)}catch(e){}
+  icon();
+});
+icon();
+
+/* Fecha o menu mobile ao escolher um item */
+var nm=document.getElementById("navMenu");
+nm.addEventListener("click",function(e){
+  if(e.target.classList.contains("nav-link")&&nm.classList.contains("show"))bootstrap.Collapse.getOrCreateInstance(nm).hide();
+});
+
+/* Formulário de contato (FormSubmit) */
+var fm=document.getElementById("form"),sendB=document.getElementById("send"),toastEl=document.getElementById("toastMsg"),toastTxt=document.getElementById("toastText");
+/* Acessibilidade do formulário: marca campos inválidos e liga cada um à sua mensagem de erro */
+var fields=[].slice.call(fm.querySelectorAll("[required]"));
+function mark(el){var fb=document.getElementById(el.id+"-erro");if(el.validity.valid){el.removeAttribute("aria-invalid");el.removeAttribute("aria-describedby")}else{el.setAttribute("aria-invalid","true");if(fb)el.setAttribute("aria-describedby",fb.id)}}
+fields.forEach(function(el){el.addEventListener("input",function(){if(fm.classList.contains("was-validated"))mark(el)})});
+/* Toast: aviso que aparece no canto da tela e some sozinho (verde = sucesso, vermelho = erro) */
+function note(t,ok){
+  toastEl.classList.remove("text-bg-success","text-bg-danger");
+  toastEl.classList.add(ok?"text-bg-success":"text-bg-danger");
+  toastTxt.textContent=t;
+  /* Leitores de tela: anuncia por uma região fixa (toast oculto não é anunciado de forma confiável) */
+  var st=document.getElementById("status");st.textContent="";setTimeout(function(){st.textContent=t},60);
+  /* Sucesso some após 10s; erro fica até a pessoa fechar (WCAG 2.2.1) */
+  var inst=bootstrap.Toast.getInstance(toastEl);if(inst)inst.dispose();
+  bootstrap.Toast.getOrCreateInstance(toastEl,{autohide:ok,delay:10000}).show();
+}
+fm.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(sendB.getAttribute("aria-disabled")==="true")return;
+  if(!fm.checkValidity()){fm.classList.add("was-validated");fields.forEach(mark);var bad=fields.filter(function(el){return !el.validity.valid})[0];if(bad)bad.focus();return}
+  if(fm.elements._honey.value)return;
+  sendB.setAttribute("aria-disabled","true");sendB.innerHTML='<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Enviando…';bootstrap.Toast.getOrCreateInstance(toastEl).hide();
+  fetch(fm.action.replace("formsubmit.co/","formsubmit.co/ajax/"),{method:"POST",headers:{Accept:"application/json"},body:new FormData(fm)})
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(d.success===true||d.success==="true"){note("Mensagem enviada! Responderei assim que possível.",true);fm.reset();fm.classList.remove("was-validated");fields.forEach(function(el){el.removeAttribute("aria-invalid");el.removeAttribute("aria-describedby")})}
+      else throw new Error(d.message||"erro");
+    })
+    .catch(function(){note("Não foi possível enviar agora. Tente de novo ou escreva para desvpaulorslima@gmail.com.",false)})
+    .then(function(){sendB.removeAttribute("aria-disabled");sendB.textContent="Enviar mensagem"});
+});
+/* Respeita "reduzir movimento": sem rolagem suave do menu */
+if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.body.removeAttribute("data-bs-smooth-scroll");
+/* Informa ao leitor de tela qual seção do menu está ativa */
+document.body.addEventListener("activate.bs.scrollspy",function(e){
+  [].forEach.call(document.querySelectorAll("#menu .nav-link"),function(l){l.removeAttribute("aria-current")});
+  if(e.relatedTarget)e.relatedTarget.setAttribute("aria-current","true");
+});

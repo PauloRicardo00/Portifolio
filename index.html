@@ -1,177 +1,451 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paulo Ricardo — Desenvolvedor Full Stack</title>
+    <script>try { document.documentElement.setAttribute("data-bs-theme", localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")) } catch (e) { }</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <nav>
-        <div class="veil" id="veil"></div>
-        <div class="wrap"><a class="logo" href="#inicio">Paulo<b>.</b>dev</a>
-            <div style="display:flex;gap:10px;align-items:center">
-                <div class="links" id="links"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a
-                        href="#portfolio">Portfólio</a><a href="#contato">Contato</a></div><button class="theme"
-                    id="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button><button
-                    class="theme burger" id="burger" type="button" aria-label="Abrir menu"
-                    aria-expanded="false">☰</button>
+<body data-bs-spy="scroll" data-bs-target="#menu" data-bs-smooth-scroll="true" data-bs-root-margin="-40% 0px -55% 0px">
+    <a class="skip" href="#conteudo">Pular para o conteúdo principal</a>
+    <nav class="navbar navbar-expand-md sticky-top border-bottom" aria-label="Menu principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">Paulo<b class="text-primary">.</b>dev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Alternar menu de navegação"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-md-center" id="menu" role="list">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><button class="btn btn-sm btn-outline-secondary rounded-pill" id="theme"
+                            type="button" aria-label="Tema escuro" aria-pressed="true"><span
+                                aria-hidden="true">◐</span></button></li>
+                </ul>
             </div>
         </div>
     </nav>
-    <header class="hero" id="inicio">
-        <div class="wrap">
-            <div class="soc"><a href="mailto:desvpaulorslima@gmail.com" aria-label="E-mail">@</a><a
-                    href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310" aria-label="LinkedIn">in</a><a
-                    href="https://github.com/PauloRicardo00" aria-label="GitHub">GH</a></div>
-            <h1>Paulo Ricardo Souza Lima<br>Desenvolvedor <em>Full Stack</em></h1>
-            <div class="ln"></div>
-            <p>Back-end, banco de dados e interfaces web. Em busca de estágio ou vaga de desenvolvedor.</p>
-            <div class="btns"><a class="btn p" href="#portfolio">Ver projetos</a><a class="btn"
-                    href="#contato">Contate-me</a></div>
-        </div>
-    </header>
-    <section id="sobre">
-        <div class="wrap">
-            <h2>Sobre mim</h2>
-            <div class="two" style="margin-top:28px">
-                <div>
-                    <p>Tenho 19 anos, sou técnico em Análise e Desenvolvimento de Sistemas pelo SENAI Ribeirão Preto e
-                        curso o superior em ADS na mesma instituição. Prefiro back-end e trabalho principalmente com C#,
-                        SQL Server, HTML, CSS, JavaScript e Bootstrap.</p>
-                    <p class="small">Fora do código: musculação, corrida, futebol, vôlei, games e confeitaria.</p>
+
+    <main id="conteudo" tabindex="-1">
+        <section class="hero d-flex align-items-center text-center" id="inicio" aria-labelledby="titulo">
+            <div class="container d-flex flex-column align-items-center gap-3">
+                <div class="d-flex gap-2">
+                    <a class="btn soc rounded-circle" href="mailto:desvpaulorslima@gmail.com" aria-label="E-mail">@</a>
+                    <a class="btn soc rounded-circle" href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310"
+                        aria-label="LinkedIn">in</a>
+                    <a class="btn soc rounded-circle" href="https://github.com/PauloRicardo00"
+                        aria-label="GitHub">GH</a>
                 </div>
-                <div class="ph"><img alt="Retrato de Paulo Ricardo" src="img/retrato-paulo.jpg"></div>
-            </div>
-            <div class="three">
-                <div class="box">
-                    <h3>Paixão</h3>
-                    <p>Back-end e sistemas que resolvem problemas reais.</p>
-                </div>
-                <div class="box">
-                    <h3>Metodologia</h3>
-                    <p>Trabalho em equipe e entregas progressivas.</p>
-                </div>
-                <div class="box">
-                    <h3>Foco atual</h3>
-                    <p>Graduação em ADS e primeira oportunidade como desenvolvedor.</p>
+                <h1 class="display-4 fw-bold" id="titulo">Paulo Ricardo Souza Lima<br>Desenvolvedor <span lang="en"
+                        class="text-primary">Full Stack</span></h1>
+                <div class="ln"></div>
+                <p class="text-secondary mb-0">Back-end, banco de dados e interfaces web. Em busca de estágio ou vaga de
+                    desenvolvedor.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <a class="btn btn-primary rounded-pill px-4" href="#portfolio">Ver projetos</a>
+                    <a class="btn btn-outline-secondary rounded-pill px-4" href="#contato">Contate-me</a>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="portfolio">
-        <div class="wrap">
-            <h2>Portfólio</h2>
-            <div class="tabs" role="tablist" aria-label="Portfólio"><button class="tab" role="tab" id="t0"
-                    aria-selected="true" aria-controls="p0">Projetos</button><button class="tab" role="tab" id="t1"
-                    aria-selected="false" aria-controls="p1" tabindex="-1">Certificados</button><button class="tab"
-                    role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Tecnologias</button></div>
-            <div role="tabpanel" id="p0" aria-labelledby="t0">
-                <div class="pj">
-                    <article class="card"><span class="frame"><img alt="Tela de boas-vindas do sistema Food-Pay"
-                                src="img/foodpay-boas-vindas.jpg"></span><span class="meta"><strong>Food-Pay</strong>
-                            <p>Projeto desenvolvido em equipe para uma cantina do SENAI de Santa Catarina, com o
-                                objetivo de digitalizar processos que eram realizados manualmente. A plataforma conecta
-                                alunos, responsáveis e funcionários, reunindo pedidos, cadastro de produtos, recargas de
-                                saldo via Stripe e notificações. Atuei como líder da equipe e fui responsável por todo o
-                                back-end, pela integração com Stripe e pelo sistema de envio de e-mails. Também conectei
-                                a API ao front-end e fiz ajustes visuais na interface, desenvolvida inicialmente por
-                                outro integrante.</p><span class="tags"><span>React 18</span><span>Vite</span><span>.NET
-                                    8 / C#</span><span>SQL Server</span><span>JWT</span><span>Stripe</span></span><span
-                                class="links2"><a href="https://pauloricardo00.github.io/Food-Pay/">Ver no ar</a><a
-                                    href="https://github.com/PauloRicardo00/Food-Pay">GitHub</a></span>
-                        </span></article>
-                    <article class="card"><span class="frame"><img alt="Tela inicial do CineMatch Pro"
-                                src="img/cinematch-pro.jpg"></span><span class="meta"><strong>CineMatch Pro</strong>
-                            <p>Gerenciador de videoteca pessoal: permite cadastrar filmes, salvar trailers e acompanhar
-                                quanto tempo de cinema já foi consumido, organizado em áreas de cadastro, videoteca e
-                                sugestões. Projeto desenvolvido sozinho, do zero.</p><span
-                                class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span><span
-                                class="links2"><a href="https://pauloricardo00.github.io/unisenai-cinematch-pro/">Ver no
-                                    ar</a><a
-                                    href="https://github.com/PauloRicardo00/unisenai-cinematch-pro">GitHub</a></span>
-                        </span></article>
-                </div>
-            </div>
-            <div role="tabpanel" id="p1" aria-labelledby="t1" hidden>
-                <div class="chips" id="chips" role="group" aria-label="Filtrar por área"></div>
-                <p class="count" id="count" aria-live="polite"></p>
-                <ul class="grid" id="grid"></ul>
-            </div>
-            <div role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-                <div class="three tgrid" style="margin-top:0">
-                    <div class="box tg">
-                        <div class="gh"><span class="ic">◧</span>
-                            <div>
-                                <h3>Front-end</h3><span class="small">4 tecnologias</span>
-                            </div>
-                        </div>
-                        <ul class="tiles">
-                            <li class="tile st"><span class="bd">&lt;/&gt;</span><span>HTML</span></li>
-                            <li class="tile st"><span class="bd">{ }</span><span>CSS</span></li>
-                            <li class="tile st"><span class="bd">JS</span><span>JavaScript</span></li>
-                            <li class="tile st"><span class="bd">B</span><span>Bootstrap</span></li>
-                        </ul>
+        </section>
+
+        <section id="sobre" class="py-5">
+            <div class="container">
+                <h2 class="titulo">Sobre mim</h2>
+                <div class="row g-5 align-items-center mt-1">
+                    <div class="col-md-7">
+                        <p>Tenho 19 anos, sou técnico em Análise e Desenvolvimento de Sistemas pelo SENAI Ribeirão Preto
+                            e
+                            curso o superior em ADS na mesma instituição. Prefiro back-end e trabalho principalmente com
+                            C#,
+                            SQL Server, HTML, CSS, JavaScript e Bootstrap.</p>
+                        <p class="small text-secondary">Fora do código: musculação, corrida, futebol, vôlei, games e
+                            confeitaria.</p>
                     </div>
-                    <div class="box tg">
-                        <div class="gh"><span class="ic">⌘</span>
-                            <div>
-                                <h3>Linguagens e Desenvolvimento</h3><span class="small">3 tecnologias</span>
-                            </div>
-                        </div>
-                        <ul class="tiles">
-                            <li class="tile st"><span class="bd">C#</span><span>C#</span></li>
-                            <li class="tile"><span class="bd">Jv</span><span>Java</span></li>
-                            <li class="tile"><span class="bd">Py</span><span>Python</span></li>
-                        </ul>
+                    <div class="col-md-5 text-center order-first order-md-last">
+                        <img class="foto rounded-circle border border-3 border-primary img-fluid"
+                            alt="Retrato de Paulo Ricardo" src="img/retrato-paulo.jpg">
                     </div>
-                    <div class="box tg">
-                        <div class="gh"><span class="ic">▤</span>
-                            <div>
-                                <h3>Banco de Dados</h3><span class="small">2 tecnologias</span>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="h6 text-primary">Paixão</h3>
+                                <p class="card-text text-secondary">Back-end e sistemas que resolvem problemas reais.
+                                </p>
                             </div>
                         </div>
-                        <ul class="tiles">
-                            <li class="tile st"><span class="bd">SQL</span><span>SQL Server</span></li>
-                            <li class="tile"><span class="bd">My</span><span>MySQL</span></li>
-                        </ul>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="h6 text-primary">Metodologia</h3>
+                                <p class="card-text text-secondary">Trabalho em equipe e entregas progressivas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="h6 text-primary">Foco atual</h3>
+                                <p class="card-text text-secondary">Graduação em ADS e primeira oportunidade como
+                                    desenvolvedor.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="contato">
-        <div class="wrap">
-            <h2>Contato</h2>
-            <div class="two" style="margin-top:28px;align-items:start">
-                <form onsubmit="return false"><input aria-label="Nome" placeholder="Nome"><input aria-label="E-mail"
-                        type="email" placeholder="E-mail"><textarea aria-label="Mensagem" rows="5"
-                        placeholder="Mensagem"></textarea><button class="btn p" type="button">Enviar</button><span
-                        class="small">O envio real será conectado na versão final.</span></form>
-                <div class="box">
-                    <p><a href="mailto:desvpaulorslima@gmail.com" style="color:var(--act)">desvpaulorslima@gmail.com</a>
-                    </p>
-                    <p><a href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310"
-                            style="color:var(--act)">LinkedIn</a></p>
-                    <p><a href="https://github.com/PauloRicardo00" style="color:var(--act)">GitHub</a></p>
+        </section>
+
+        <section id="portfolio" class="py-5">
+            <div class="container">
+                <h2 class="titulo">Portfólio</h2>
+                <ul class="nav nav-tabs my-4" role="tablist" aria-label="Seções do portfólio">
+                    <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab"
+                            data-bs-target="#p0" type="button" role="tab" id="t0" aria-controls="p0"
+                            aria-selected="true">Projetos</button></li>
+                    <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#p1" type="button" role="tab" id="t1" aria-controls="p1"
+                            aria-selected="false">Certificados</button></li>
+                    <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#p2" type="button" role="tab" id="t2" aria-controls="p2"
+                            aria-selected="false">Tecnologias</button></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="p0" role="tabpanel" aria-labelledby="t0">
+                        <div class="row row-cols-1 row-cols-lg-2 g-4">
+                            <div class="col">
+                                <article class="card h-100">
+                                    <div id="carFoodPay" class="carousel slide" role="region"
+                                        aria-roledescription="carousel" aria-label="Telas do Food-Pay">
+                                        <div class="carousel-inner" aria-live="polite">
+                                            <div class="carousel-item active" role="group" aria-roledescription="slide"
+                                                aria-label="1 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela de boas-vindas do sistema Food-Pay"
+                                                        src="img/foodpay-boas-vindas.jpg"></div>
+                                            </div>
+                                            <div class="carousel-item" role="group" aria-roledescription="slide"
+                                                aria-label="2 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela de criar cadastro do Food-Pay"
+                                                        src="img/foodpay-cadastro.jpg"></div>
+                                            </div>
+                                            <div class="carousel-item" role="group" aria-roledescription="slide"
+                                                aria-label="3 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela de recuperar senha do Food-Pay"
+                                                        src="img/foodpay-recuperar-senha.jpg"></div>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carFoodPay"
+                                            data-bs-slide="prev"><span class="carousel-control-prev-icon"
+                                                aria-hidden="true"></span><span class="visually-hidden">Tela
+                                                anterior</span></button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carFoodPay"
+                                            data-bs-slide="next"><span class="carousel-control-next-icon"
+                                                aria-hidden="true"></span><span class="visually-hidden">Próxima
+                                                tela</span></button>
+                                    </div>
+                                    <div class="card-body d-flex flex-column gap-2">
+                                        <h3 class="h5 card-title mb-0">Food-Pay</h3>
+                                        <div class="accordion" id="accFoodPay">
+                                            <div class="accordion-item">
+                                                <h4 class="accordion-header"><button class="accordion-button"
+                                                        type="button" data-bs-toggle="collapse" data-bs-target="#fp1"
+                                                        aria-expanded="true" aria-controls="fp1">Sobre o
+                                                        projeto</button></h4>
+                                                <div id="fp1" class="accordion-collapse collapse show"
+                                                    data-bs-parent="#accFoodPay">
+                                                    <div class="accordion-body text-secondary small">Projeto
+                                                        desenvolvido em equipe para uma cantina do SENAI de Santa
+                                                        Catarina, com o objetivo de digitalizar processos que eram
+                                                        realizados manualmente. A plataforma conecta alunos,
+                                                        responsáveis e funcionários, reunindo pedidos, cadastro de
+                                                        produtos, recargas de saldo via Stripe e notificações.</div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h4 class="accordion-header"><button class="accordion-button collapsed"
+                                                        type="button" data-bs-toggle="collapse" data-bs-target="#fp2"
+                                                        aria-expanded="false" aria-controls="fp2">Minha atuação</button>
+                                                </h4>
+                                                <div id="fp2" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accFoodPay">
+                                                    <div class="accordion-body text-secondary small">Atuei como líder da
+                                                        equipe e fui responsável por todo o back-end, pela integração
+                                                        com Stripe e pelo sistema de envio de e-mails. Também conectei a
+                                                        API ao front-end e fiz ajustes visuais na interface,
+                                                        desenvolvida inicialmente por outro integrante.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <span class="badge rounded-pill border text-primary">React 18</span><span
+                                                class="badge rounded-pill border text-primary">Vite</span><span
+                                                class="badge rounded-pill border text-primary">.NET 8 / C#</span><span
+                                                class="badge rounded-pill border text-primary">SQL Server</span><span
+                                                class="badge rounded-pill border text-primary">JWT</span><span
+                                                class="badge rounded-pill border text-primary">Stripe</span>
+                                        </div>
+                                        <div class="d-flex gap-3 mt-auto pt-2">
+                                            <a class="fw-semibold" href="https://pauloricardo00.github.io/Food-Pay/">Ver
+                                                no ar<span class="visually-hidden">: Food-Pay</span></a>
+                                            <a class="fw-semibold"
+                                                href="https://github.com/PauloRicardo00/Food-Pay">GitHub<span
+                                                    class="visually-hidden"> do projeto Food-Pay</span></a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="card h-100">
+                                    <div id="carCineMatch" class="carousel slide" role="region"
+                                        aria-roledescription="carousel" aria-label="Telas do CineMatch Pro">
+                                        <div class="carousel-inner" aria-live="polite">
+                                            <div class="carousel-item active" role="group" aria-roledescription="slide"
+                                                aria-label="1 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela inicial do CineMatch Pro" src="img/cinematch-pro.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item" role="group" aria-roledescription="slide"
+                                                aria-label="2 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela de cadastro de filmes do CineMatch Pro"
+                                                        src="img/cinematch-cadastro.jpg"></div>
+                                            </div>
+                                            <div class="carousel-item" role="group" aria-roledescription="slide"
+                                                aria-label="3 de 3">
+                                                <div class="frame"><img class="rounded-1 shadow"
+                                                        alt="Tela da videoteca pessoal do CineMatch Pro"
+                                                        src="img/cinematch-videoteca.jpg"></div>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carCineMatch" data-bs-slide="prev"><span
+                                                class="carousel-control-prev-icon" aria-hidden="true"></span><span
+                                                class="visually-hidden">Tela anterior</span></button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carCineMatch" data-bs-slide="next"><span
+                                                class="carousel-control-next-icon" aria-hidden="true"></span><span
+                                                class="visually-hidden">Próxima tela</span></button>
+                                    </div>
+                                    <div class="card-body d-flex flex-column gap-2">
+                                        <h3 class="h5 card-title mb-0">CineMatch Pro</h3>
+                                        <div class="accordion" id="accCineMatch">
+                                            <div class="accordion-item">
+                                                <h4 class="accordion-header"><button class="accordion-button"
+                                                        type="button" data-bs-toggle="collapse" data-bs-target="#cm1"
+                                                        aria-expanded="true" aria-controls="cm1">Sobre o
+                                                        projeto</button></h4>
+                                                <div id="cm1" class="accordion-collapse collapse show"
+                                                    data-bs-parent="#accCineMatch">
+                                                    <div class="accordion-body text-secondary small">Gerenciador de
+                                                        videoteca pessoal: permite cadastrar filmes, salvar trailers e
+                                                        acompanhar quanto tempo de cinema já foi consumido, organizado
+                                                        em áreas de cadastro, videoteca e sugestões.</div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h4 class="accordion-header"><button class="accordion-button collapsed"
+                                                        type="button" data-bs-toggle="collapse" data-bs-target="#cm2"
+                                                        aria-expanded="false" aria-controls="cm2">Minha atuação</button>
+                                                </h4>
+                                                <div id="cm2" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accCineMatch">
+                                                    <div class="accordion-body text-secondary small">Projeto
+                                                        desenvolvido sozinho, do zero.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <span class="badge rounded-pill border text-primary">HTML</span><span
+                                                class="badge rounded-pill border text-primary">CSS</span><span
+                                                class="badge rounded-pill border text-primary">JavaScript</span>
+                                        </div>
+                                        <div class="d-flex gap-3 mt-auto pt-2">
+                                            <a class="fw-semibold"
+                                                href="https://pauloricardo00.github.io/unisenai-cinematch-pro/">Ver no
+                                                ar<span class="visually-hidden">: CineMatch Pro</span></a>
+                                            <a class="fw-semibold"
+                                                href="https://github.com/PauloRicardo00/unisenai-cinematch-pro">GitHub<span
+                                                    class="visually-hidden"> do projeto CineMatch Pro</span></a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="p1" role="tabpanel" aria-labelledby="t1">
+                        <div class="d-flex flex-wrap gap-2 mb-2" id="chips" role="group" aria-label="Filtrar por área">
+                        </div>
+                        <p class="text-secondary small mb-3" id="count" aria-live="polite"></p>
+                        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3" id="grid"></div>
+                    </div>
+
+                    <div class="tab-pane fade" id="p2" role="tabpanel" aria-labelledby="t2" tabindex="0">
+                        <div class="row row-cols-1 row-cols-md-3 g-3 align-items-start">
+                            <div class="col">
+                                <div class="card tg">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-3 mb-3"><span class="ic"
+                                                aria-hidden="true">◧</span>
+                                            <div>
+                                                <h3 class="h6 mb-0">Front-end</h3><small class="text-secondary">4
+                                                    tecnologias</small>
+                                            </div>
+                                        </div>
+                                        <ul class="list-group" role="list">
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">&lt;/&gt;</span>HTML</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">{ }</span>CSS</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">JS</span>JavaScript</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">B</span>Bootstrap</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card tg">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-3 mb-3"><span class="ic"
+                                                aria-hidden="true">⌘</span>
+                                            <div>
+                                                <h3 class="h6 mb-0">Linguagens e Desenvolvimento</h3><small
+                                                    class="text-secondary">3 tecnologias</small>
+                                            </div>
+                                        </div>
+                                        <ul class="list-group" role="list">
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">C#</span>C#</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3"><span
+                                                    class="badge bd" aria-hidden="true">Jv</span>Java</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3"><span
+                                                    class="badge bd" aria-hidden="true">Py</span>Python</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card tg">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-3 mb-3"><span class="ic"
+                                                aria-hidden="true">▤</span>
+                                            <div>
+                                                <h3 class="h6 mb-0">Banco de Dados</h3><small class="text-secondary">2
+                                                    tecnologias</small>
+                                            </div>
+                                        </div>
+                                        <ul class="list-group" role="list">
+                                            <li class="list-group-item d-flex align-items-center gap-3 st"><span
+                                                    class="badge bd" aria-hidden="true">SQL</span>SQL Server</li>
+                                            <li class="list-group-item d-flex align-items-center gap-3"><span
+                                                    class="badge bd" aria-hidden="true">My</span>MySQL</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer>© 2026 Paulo Ricardo Souza Lima</footer>
-    <dialog id="lb" aria-label="Certificado ampliado">
-        <div class="lb">
-            <div class="bar"><span id="pos"></span>
-                <div class="nav"><button class="ib" id="prev" type="button" aria-label="Anterior">←</button><button
-                        class="ib" id="next" type="button" aria-label="Próximo">→</button><button class="ib" id="close"
-                        type="button" aria-label="Fechar">✕</button></div>
+        </section>
+
+        <section id="contato" class="py-5">
+            <div class="container">
+                <h2 class="titulo">Contato</h2>
+                <div class="row g-5 mt-1">
+                    <div class="col-md-7">
+                        <p class="text-secondary small">Todos os campos são obrigatórios.</p>
+                        <form id="form" class="needs-validation" novalidate aria-label="Enviar mensagem de contato"
+                            method="POST" action="https://formsubmit.co/desvpaulorslima@gmail.com">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="name" autocomplete="name"
+                                    required minlength="2">
+                                <div class="invalid-feedback" id="nome-erro">Informe seu nome.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" name="email" autocomplete="email"
+                                    required>
+                                <div class="invalid-feedback" id="email-erro">Informe um e-mail válido.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" name="message" rows="5" required
+                                    minlength="10"></textarea>
+                                <div class="invalid-feedback" id="mensagem-erro">Escreva uma mensagem com pelo menos 10
+                                    caracteres.</div>
+                            </div>
+                            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off"
+                                aria-hidden="true">
+                            <input type="hidden" name="_subject" value="Nova mensagem pelo portfólio">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <button class="btn btn-primary rounded-pill px-4" type="submit" id="send">Enviar
+                                mensagem</button>
+                        </form>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <p><a href="mailto:desvpaulorslima@gmail.com">desvpaulorslima@gmail.com</a></p>
+                                <p><a href="https://www.linkedin.com/in/paulo-ricardo-8b93b7310">LinkedIn</a></p>
+                                <p class="mb-0"><a href="https://github.com/PauloRicardo00">GitHub</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="img"><img id="lbimg" alt=""></div>
-            <div class="cap"><strong id="lbt"></strong><br><small id="lbm" style="color:var(--mu)"></small></div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-secondary small py-4">© 2026 Paulo Ricardo Souza Lima</footer>
+
+    <div id="status" class="visually-hidden" role="status" aria-live="polite"></div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastMsg" class="toast align-items-center border-0">
+            <div class="d-flex">
+                <div class="toast-body" id="toastText"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Fechar aviso"></button>
+            </div>
         </div>
-    </dialog>
+    </div>
+
+    <div class="modal fade" id="lb" tabindex="-1" aria-labelledby="lbt" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header gap-2">
+                    <span id="pos" class="text-secondary small me-auto" aria-live="polite"></span>
+                    <button class="btn btn-sm btn-outline-secondary" id="prev" type="button"
+                        aria-label="Certificado anterior"><span aria-hidden="true">←</span></button>
+                    <button class="btn btn-sm btn-outline-secondary" id="next" type="button"
+                        aria-label="Próximo certificado"><span aria-hidden="true">→</span></button>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body frame-lg"><img id="lbimg" class="img-fluid rounded-1" alt=""></div>
+                <div class="modal-footer d-block border-0" aria-live="polite" aria-atomic="true"><strong
+                        id="lbt"></strong><br><small id="lbm" class="text-secondary"></small></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
